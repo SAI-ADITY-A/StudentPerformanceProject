@@ -16,6 +16,7 @@ sys.path.append(project_root)
 
 from src.exception import CustomException
 from src.logger import logging
+from src.utils import save_object
 
 @dataclass
 class DataTransformationCOnfig:
@@ -107,6 +108,6 @@ class DataTransformation:
                 self.data_transformation_config.preprocessor_obj_file_path
             )
 
-        except:
-            pass
+        except Exception as e:
+            raise CustomException(e,sys)
     
